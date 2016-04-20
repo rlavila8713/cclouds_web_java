@@ -1,6 +1,7 @@
 package com.xedrux.cclouds.web.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.validation.constraints.Size;
 
@@ -25,6 +26,8 @@ public class CcloudsSubEmpresa implements Serializable {
     @Size(max = 500)
     private String imagenLogoSubEmpresa;
     private long idEmpresa;
+    
+    private SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy/MM/dd");
 
     public CcloudsSubEmpresa() {
     }
@@ -94,8 +97,8 @@ public class CcloudsSubEmpresa implements Serializable {
         this.idRepresentante2SubEmpresa = idRepresentante2SubEmpresa;
     }
 
-    public Date getFechaConstitucionSubEmpresa() {
-        return fechaConstitucionSubEmpresa;
+    public String getFechaConstitucionSubEmpresa() {
+        return dateFormatter.format(fechaConstitucionSubEmpresa);
     }
 
     public void setFechaConstitucionSubEmpresa(Date fechaConstitucionSubEmpresa) {

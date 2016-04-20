@@ -1,6 +1,7 @@
 package com.xedrux.cclouds.web.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.validation.constraints.Size;
 
@@ -8,8 +9,8 @@ import javax.validation.constraints.Size;
  *
  * @author Admin
  */
-
 public class CcloudsEmpresa implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private Integer idEmpresa;
     @Size(max = 255)
@@ -24,6 +25,7 @@ public class CcloudsEmpresa implements Serializable {
     private String esloganEmpresa;
     @Size(max = 500)
     private String imagenLogoEmpresa;
+    private SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy/MM/dd");
 
     public CcloudsEmpresa() {
     }
@@ -42,7 +44,7 @@ public class CcloudsEmpresa implements Serializable {
         this.esloganEmpresa = esloganEmpresa;
         this.imagenLogoEmpresa = imagenLogoEmpresa;
     }
-    
+
     public Integer getIdEmpresa() {
         return idEmpresa;
     }
@@ -83,8 +85,8 @@ public class CcloudsEmpresa implements Serializable {
         this.rupEmpresa = rupEmpresa;
     }
 
-    public Date getFechaConstitucionEmpresa() {
-        return fechaConstitucionEmpresa;
+    public String getFechaConstitucionEmpresa() {
+        return dateFormatter.format(fechaConstitucionEmpresa);
     }
 
     public void setFechaConstitucionEmpresa(Date fechaConstitucionEmpresa) {
@@ -107,7 +109,6 @@ public class CcloudsEmpresa implements Serializable {
         this.imagenLogoEmpresa = imagenLogoEmpresa;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -132,5 +133,5 @@ public class CcloudsEmpresa implements Serializable {
     public String toString() {
         return "com.xedrux.cclouds.web.entities.CcloudsEmpresa[ idEmpresa=" + idEmpresa + " ]";
     }
-    
+
 }

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Date;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -89,7 +90,7 @@ public class EmpresaDAO {
                 REPRESENTANTE, RUP, FECHA, ESOLOGAN, IMAGEN_LOGO);
         return (dataSource.update(UPDATE_SQL, empresa.getNombreEmpresa(),
                 empresa.getObservacionEmpresa(), empresa.getIdRepresentante(),
-                empresa.getRupEmpresa(), empresa.getFechaConstitucionEmpresa(),
+                empresa.getRupEmpresa(), new Date(empresa.getFechaConstitucionEmpresa()),
                 empresa.getEsloganEmpresa(), empresa.getImagenLogoEmpresa(),
                 empresa.getIdEmpresa()) > 0);
     }
