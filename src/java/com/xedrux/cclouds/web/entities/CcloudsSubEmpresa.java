@@ -97,8 +97,8 @@ public class CcloudsSubEmpresa implements Serializable {
         this.idRepresentante2SubEmpresa = idRepresentante2SubEmpresa;
     }
 
-    public String getFechaConstitucionSubEmpresa() {
-        return dateFormatter.format(fechaConstitucionSubEmpresa);
+    public Date getFechaConstitucionSubEmpresa() {
+        return fechaConstitucionSubEmpresa;
     }
 
     public void setFechaConstitucionSubEmpresa(Date fechaConstitucionSubEmpresa) {

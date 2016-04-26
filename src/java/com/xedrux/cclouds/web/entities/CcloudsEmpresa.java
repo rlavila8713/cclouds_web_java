@@ -85,8 +85,8 @@ public class CcloudsEmpresa implements Serializable {
         this.rupEmpresa = rupEmpresa;
     }
 
-    public String getFechaConstitucionEmpresa() {
-        return dateFormatter.format(fechaConstitucionEmpresa);
+    public Date getFechaConstitucionEmpresa() {
+        return fechaConstitucionEmpresa;
     }
 
     public void setFechaConstitucionEmpresa(Date fechaConstitucionEmpresa) {

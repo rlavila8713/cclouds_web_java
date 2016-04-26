@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Date;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -46,7 +45,6 @@ public class EmpresaDAO {
         } catch (EmptyResultDataAccessException e) {
             return new LinkedList<>();
         }
-
     }
 
     public CcloudsEmpresa getEmpresa(long id) {
@@ -90,7 +88,7 @@ public class EmpresaDAO {
                 REPRESENTANTE, RUP, FECHA, ESOLOGAN, IMAGEN_LOGO);
         return (dataSource.update(UPDATE_SQL, empresa.getNombreEmpresa(),
                 empresa.getObservacionEmpresa(), empresa.getIdRepresentante(),
-                empresa.getRupEmpresa(), new Date(empresa.getFechaConstitucionEmpresa()),
+                empresa.getRupEmpresa(), empresa.getFechaConstitucionEmpresa(),
                 empresa.getEsloganEmpresa(), empresa.getImagenLogoEmpresa(),
                 empresa.getIdEmpresa()) > 0);
     }
@@ -101,7 +99,6 @@ public class EmpresaDAO {
     }
 
     private final class EmpresaMapper implements RowMapper<CcloudsEmpresa> {
-
         @Override
         public CcloudsEmpresa mapRow(ResultSet rs, int rowNum) throws SQLException {
             CcloudsEmpresa empresa = null;
